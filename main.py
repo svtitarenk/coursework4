@@ -39,8 +39,6 @@ def user_interaction():
         "От 3 до 6 лет"
     )
 
-    # Сохранение информации о вакансиях в файл
-
     Vacancy.add_vacancy(vacancy)
     # print('vacancies_list.add_vacancy(vacancy)', vacancies_list[-1].name)
     Vacancy.delete_vacancy(vacancy)
@@ -53,9 +51,11 @@ def user_interaction():
 
     top_n = int(input("Введите количество вакансий для вывода в топ N: "))
     # top_n = 5
-    top_n_list = Vacancy.top_n_list(int(top_n))
+    Vacancy.top_n_list(int(top_n))
     # print(*top_n_list, sep='\n')
     print(*Vacancy.vacancies, end='\n', sep='\n')
+
+    # Сохранение информации о вакансиях в файл
     file_ex.save_to_file(Vacancy.vacancies)
 
 
@@ -67,9 +67,9 @@ if __name__ == "__main__":
     # salary_range = 50000
 
     # filtered_vacancies = filter_vacancies(vacancies_list, filter_words)
-    #
+
     # ranged_vacancies = get_vacancies_by_salary(filtered_vacancies, salary_range)
-    #
+
     # sorted_vacancies = sort_vacancies(ranged_vacancies)
     # top_vacancies = get_top_vacancies(sorted_vacancies, top_n)
     # print_vacancies(top_vacancies)
