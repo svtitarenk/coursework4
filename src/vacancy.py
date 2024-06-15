@@ -1,4 +1,6 @@
 class Vacancy:
+    vacancies: list = []
+
     def __init__(self, name, url, salary_from, salary_to, city, experience):
         self.name = name
         self.url = url
@@ -19,6 +21,19 @@ class Vacancy:
             self.salary_from = 0
         else:
             self.salary_to = self.salary_to
+
+    def __lt__(self, other):
+        if self.salary_from < other.salary_from:
+            return True
+        else:
+            return False
+
+    def __str__(self):
+        return (f'Название: {self.name},\n'
+                f'url: {self.url},\n'
+                f'Зарплата: {self.salary_from} - {self.salary_to},\n'
+                f'Город: {self.city},\n'
+                f'Опыт: {self.experience}\n')
 
     @classmethod
     def create_vacancies(cls, data: list):
@@ -43,7 +58,8 @@ class Vacancy:
                                      )
             list_vacancies.append(vacancy_object)
 
-        return list_vacancies
+        Vacancy.vacancies = list_vacancies
+        return Vacancy.vacancies
 
     def to_dict(self):
         return {"name": self.name,
@@ -54,5 +70,30 @@ class Vacancy:
                 "experience": self.experience
                 }
 
+    @staticmethod
+    def add_vacancy(new_vacancy):
+        return Vacancy.vacancies.append(new_vacancy)
+
+    @staticmethod
+    def delete_vacancy(del_vacancy):
+        return Vacancy.vacancies.remove(del_vacancy)
+
+    @staticmethod
+    def sorted_desc_list():
+        """ сортируем список """
+        sort_key = lambda vac: vac
+        Vacancy.vacancies.sort(key=sort_key, reverse=True)
+
+    @staticmethod
+    def top_n_list(top_n):
+        Vacancy.vacancies = Vacancy.vacancies[:top_n]
+
+    @staticmethod
+    def search_by_keywords(searched_word):
+        new_list = []
+        for vacancy in Vacancy.vacancies:
+            if searched_word.lower() in vacancy.name.lower():
+                new_list.append(vacancy)
+        Vacancy.vacancies = new_list
 
 

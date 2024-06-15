@@ -58,42 +58,42 @@ class FileWorker(FileManager):
             list_of_dict = file.read()
             return list_of_dict
 
-    def read_data(self):
-        """" открываем файл """
-        with open(self.file_path, 'r', encoding='utf-8') as file:
-            content = json.load(file)
-            vacancies: list[Vacancy] = []
-            for row in content:
-                vacancy = Vacancy(
-                                row["name"],
-                                row["alternate_url"],
-                                row["salary_from"],
-                                row["salary_to"],
-                                row["city"],
-                                row["experience"]
-                                )
-                vacancies.append(vacancy)
-        return vacancies
+    # def read_data(self):
+    #     """" открываем файл """
+    #     with open(self.file_path, 'r', encoding='utf-8') as file:
+    #         content = json.load(file)
+    #         vacancies: list[Vacancy] = []
+    #         for row in content:
+    #             vacancy = Vacancy(
+    #                             row["name"],
+    #                             row["alternate_url"],
+    #                             row["salary_from"],
+    #                             row["salary_to"],
+    #                             row["city"],
+    #                             row["experience"]
+    #                             )
+    #             vacancies.append(vacancy)
+    #     return vacancies
 
-    def add_vacancy(self, vacancy):
-        """
-        Добавление одной вакансии в файл
-        """
-        vacancies = self.read_data()
-        print(vacancies[-1])
-        vacancies.append(vacancy)
-        self.save_to_file(vacancies)
-
-    def delete_vacancy(self, vacancy):
-        '''
-        Функция удаляет отобранную по критериям вакансию и сохраняет изменения в файл
-        '''
-        vacancies = self.read_data()
-        print('vacancies[-1].name', vacancies[-1].name)
-        print('vacancy.name', vacancy.name)
-        lookup_object = [item for item in vacancies if vacancy.url == item.url][0]
-        vacancies.remove(lookup_object)
-        self.save_to_file(vacancies)
+    # def add_vacancy(self, vacancy):
+    #     """
+    #     Добавление одной вакансии в файл
+    #     """
+    #     vacancies = self.read_data()
+    #     print(vacancies[-1])
+    #     vacancies.append(vacancy)
+    #     self.save_to_file(vacancies)
+    #
+    # def delete_vacancy(self, vacancy):
+    #     '''
+    #     Функция удаляет отобранную по критериям вакансию и сохраняет изменения в файл
+    #     '''
+    #     vacancies = self.read_data()
+    #     print('vacancies[-1].name', vacancies[-1].name)
+    #     print('vacancy.name', vacancy.name)
+    #     lookup_object = [item for item in vacancies if vacancy.url == item.url][0]
+    #     vacancies.remove(lookup_object)
+    #     self.save_to_file(vacancies)
 
     @staticmethod
     def check_directory_exist(directory):
