@@ -97,4 +97,3 @@ class Vacancy:
                 new_list.append(vacancy)
         Vacancy.vacancies = new_list
 
-
