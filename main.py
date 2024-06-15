@@ -5,6 +5,7 @@ from src.file_explorer import FileWorker
 # Создание экземпляра класса для работы с API сайтов с вакансиями
 hh_api = HeadHunterAPI()
 
+
 # Функция для взаимодействия с пользователем
 def user_interaction():
     platforms = ["HeadHunter"]
@@ -12,7 +13,9 @@ def user_interaction():
     input_salary = input("Введите ожидаемую зарплату для поиска вакансий: ")
     # search_query = 'Python'
     # input_salary = 100000
-    file_ex = FileWorker(search_query)
+
+    # создаем экземпляр класса FileWorker и передаем название файла
+    file_ex = FileWorker('vacancies.json')
 
     # Получение вакансий с hh.ru в формате JSON
     hh_vacancies = hh_api.get_vacancies(search_query, int(input_salary))
@@ -43,9 +46,7 @@ def user_interaction():
     Vacancy.delete_vacancy(vacancy)
     # print('vacancies_list.delete_vacancy(vacancy)',vacancies_list[-1].name)
 
-
-
-    filter_words = input("Введите ключевые слова для фильтрации вакансий: ").split()
+    filter_words = input("Введите ключевые слова для фильтрации вакансий: ") #.split()
     # filter_words = "Django"
     Vacancy.search_by_keywords(filter_words)
     Vacancy.sorted_desc_list()
@@ -56,6 +57,7 @@ def user_interaction():
     # print(*top_n_list, sep='\n')
     print(*Vacancy.vacancies, end='\n', sep='\n')
     print('пустая строка')
+    file_ex.save_to_file(Vacancy.vacancies)
 
     # используется в запросе API ранее для получения вакансий с указанной вилкой
     # salary_range = input("Введите диапазон зарплат: ") # Пример: 100000 - 150000
