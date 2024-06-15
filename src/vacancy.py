@@ -17,8 +17,8 @@ class Vacancy:
         else:
             self.salary_from = self.salary_from
         #
-        if self.salary_from is None:
-            self.salary_from = 0
+        if self.salary_to is None:
+            self.salary_to = 0
         else:
             self.salary_to = self.salary_to
 

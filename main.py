@@ -56,8 +56,11 @@ def user_interaction():
     top_n_list = Vacancy.top_n_list(int(top_n))
     # print(*top_n_list, sep='\n')
     print(*Vacancy.vacancies, end='\n', sep='\n')
-    print('пустая строка')
     file_ex.save_to_file(Vacancy.vacancies)
+
+
+if __name__ == "__main__":
+    user_interaction()
 
     # используется в запросе API ранее для получения вакансий с указанной вилкой
     # salary_range = input("Введите диапазон зарплат: ") # Пример: 100000 - 150000
@@ -70,7 +73,3 @@ def user_interaction():
     # sorted_vacancies = sort_vacancies(ranged_vacancies)
     # top_vacancies = get_top_vacancies(sorted_vacancies, top_n)
     # print_vacancies(top_vacancies)
-
-
-if __name__ == "__main__":
-    user_interaction()

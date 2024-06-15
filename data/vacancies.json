@@ -1,10 +1,106 @@
 [
     {
+        "name": "Python разработчик",
+        "alternate_url": "https://hh.ru/vacancy/101127594",
+        "salary_from": 150000,
+        "salary_to": 0,
+        "city": "Москва",
+        "experience": "От 1 года до 3 лет"
+    },
+    {
+        "name": "Python разработчик",
+        "alternate_url": "https://hh.ru/vacancy/100742575",
+        "salary_from": 150000,
+        "salary_to": 250000,
+        "city": "Москва",
+        "experience": "От 1 года до 3 лет"
+    },
+    {
+        "name": "Python разработчик",
+        "alternate_url": "https://hh.ru/vacancy/101732669",
+        "salary_from": 150000,
+        "salary_to": 250000,
+        "city": "Москва",
+        "experience": "От 3 до 6 лет"
+    },
+    {
+        "name": "Middle Python Developer",
+        "alternate_url": "https://hh.ru/vacancy/101741848",
+        "salary_from": 150000,
+        "salary_to": 250000,
+        "city": "Екатеринбург",
+        "experience": "От 1 года до 3 лет"
+    },
+    {
+        "name": "Python backend developer",
+        "alternate_url": "https://hh.ru/vacancy/101982971",
+        "salary_from": 140000,
+        "salary_to": 0,
+        "city": "Москва",
+        "experience": "От 1 года до 3 лет"
+    },
+    {
+        "name": "Python разработчик",
+        "alternate_url": "https://hh.ru/vacancy/101243479",
+        "salary_from": 140000,
+        "salary_to": 0,
+        "city": "Москва",
+        "experience": "От 1 года до 3 лет"
+    },
+    {
+        "name": "Python backend developer",
+        "alternate_url": "https://hh.ru/vacancy/101904521",
+        "salary_from": 120000,
+        "salary_to": 180000,
+        "city": "Челябинск",
+        "experience": "От 1 года до 3 лет"
+    },
+    {
+        "name": "Аналитик Python",
+        "alternate_url": "https://hh.ru/vacancy/101282288",
+        "salary_from": 120000,
+        "salary_to": 150000,
+        "city": "Москва",
+        "experience": "От 1 года до 3 лет"
+    },
+    {
+        "name": "Стажер-разработчик Python",
+        "alternate_url": "https://hh.ru/vacancy/94354526",
+        "salary_from": 100000,
+        "salary_to": 0,
+        "city": "Ростов-на-Дону",
+        "experience": "Нет опыта"
+    },
+    {
         "name": "Разработчик Python / Django",
         "alternate_url": "https://hh.ru/vacancy/101077785",
         "salary_from": 100000,
         "salary_to": 150000,
         "city": "Москва",
+        "experience": "От 1 года до 3 лет"
+    },
+    {
+        "name": "Junior Python разработчик / IT / (удаленно)",
+        "alternate_url": "https://hh.ru/vacancy/101276173",
+        "salary_from": 70000,
+        "salary_to": 100000,
+        "city": "Москва",
+        "experience": "От 1 года до 3 лет"
+    },
+    {
+        "name": "Python developer (Junior)",
+        "alternate_url": "https://hh.ru/vacancy/101219641",
+        "salary_from": 70000,
+        "salary_to": 0,
+        "city": "Владивосток",
+        "experience": "Нет опыта"
+    },
+    {
+        "name": "Junior Python разработчик",
+        "alternate_url": "https://hh.ru/vacancy/101917777",
+        "salary_from": 60000,
+        "salary_to": 0,
+        "city": "Санкт-Петербург",
         "experience": "От 1 года до 3 лет"
     },
     {
@@ -16,6 +112,14 @@
         "experience": "От 1 года до 3 лет"
     },
     {
+        "name": "Python Developer",
+        "alternate_url": "https://hh.ru/vacancy/101793114",
+        "salary_from": 60000,
+        "salary_to": 100000,
+        "city": "Новосибирск",
+        "experience": "От 1 года до 3 лет"
+    },
+    {
         "name": "Junior Django developer",
         "alternate_url": "https://hh.ru/vacancy/101269067",
         "salary_from": 60000,
@@ -24,19 +128,35 @@
         "experience": "От 1 года до 3 лет"
     },
     {
-        "name": "Junior Python Django developer",
-        "alternate_url": "https://hh.ru/vacancy/101871676",
-        "salary_from": 0,
-        "salary_to": 120000,
+        "name": "Разработчик Python (junior)",
+        "alternate_url": "https://hh.ru/vacancy/100389204",
+        "salary_from": 60000,
+        "salary_to": 70000,
         "city": "Москва",
         "experience": "От 1 года до 3 лет"
     },
     {
-        "name": "Python / Django Developer",
-        "alternate_url": "https://hh.ru/vacancy/101862444",
-        "salary_from": 0,
-        "salary_to": 150000,
-        "city": "Краснодар",
+        "name": "Стажер в Data Scientist/ML",
+        "alternate_url": "https://hh.ru/vacancy/101926206",
+        "salary_from": 50000,
+        "salary_to": 0,
+        "city": "Сочи",
+        "experience": "Нет опыта"
+    },
+    {
+        "name": "Python Developer",
+        "alternate_url": "https://hh.ru/vacancy/101746208",
+        "salary_from": 50000,
+        "salary_to": 70000,
+        "city": "Тюмень",
         "experience": "От 1 года до 3 лет"
+    },
+    {
+        "name": "Стажер-разработчик Python",
+        "alternate_url": "https://hh.ru/vacancy/100099633",
+        "salary_from": 2400,
+        "salary_to": 0,
+        "city": "Минск",
+        "experience": "Нет опыта"
     }
 ]
