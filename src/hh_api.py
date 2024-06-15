@@ -32,11 +32,11 @@ class HeadHunterAPI(Parser):
     def get_vacancies(self, keyword, salary):
         self.params['text'] = keyword
         self.params['salary'] = salary
-        # while self.params.get('page') != 2:
-        response = requests.get(self.url, headers=self.headers, params=self.params)
-        vacancies = response.json()['items']
-        self.vacancies.extend(vacancies)
-            # self.params['page'] += 1
+        while self.params.get('page') != 20:
+            response = requests.get(self.url, headers=self.headers, params=self.params)
+            vacancies = response.json()['items']
+            self.vacancies.extend(vacancies)
+            self.params['page'] += 1
 
         return self.vacancies
 

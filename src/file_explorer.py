@@ -10,10 +10,13 @@ from src.vacancy import Vacancy
 class FileManager(ABC):
 
     @abstractmethod
-    def __init__(self):
+    def __init__(self, file_name, directory='data'):
         pass
 
-    def save_data(self, data):
+    def save_to_file(self, data: list[Vacancy]):
+        pass
+
+    def open_file(self, file_path):
         pass
 
 
@@ -39,7 +42,6 @@ class FileWorker(FileManager):
         else:
             self.file_name = file_name
 
-
     def save_to_file(self, data: list[Vacancy]):
         """
         :param data: передаем список экземпляров вакансий
@@ -57,43 +59,6 @@ class FileWorker(FileManager):
         with open(file_path, 'r', encoding='utf-8') as file:
             list_of_dict = file.read()
             return list_of_dict
-
-    def read_data(self):
-        """" открываем файл """
-        with open(self.file_path, 'r', encoding='utf-8') as file:
-            content = json.load(file)
-            vacancies: list[Vacancy] = []
-            for row in content:
-                vacancy = Vacancy(
-                                row["name"],
-                                row["alternate_url"],
-                                row["salary_from"],
-                                row["salary_to"],
-                                row["city"],
-                                row["experience"]
-                                )
-                vacancies.append(vacancy)
-        return vacancies
-
-    def add_vacancy(self, vacancy):
-        """
-        Добавление одной вакансии в файл
-        """
-        vacancies = self.read_data()
-        print(vacancies[-1])
-        vacancies.append(vacancy)
-        self.save_to_file(vacancies)
-
-    def delete_vacancy(self, vacancy):
-        '''
-        Функция удаляет отобранную по критериям вакансию и сохраняет изменения в файл
-        '''
-        vacancies = self.read_data()
-        print('vacancies[-1].name', vacancies[-1].name)
-        print('vacancy.name', vacancy.name)
-        lookup_object = [item for item in vacancies if vacancy.url == item.url][0]
-        vacancies.remove(lookup_object)
-        self.save_to_file(vacancies)
 
     @staticmethod
     def check_directory_exist(directory):
@@ -128,13 +93,6 @@ class FileWorker(FileManager):
             return False
 
 
-
-# students_json = json.dumps(students_dict_list, indent=4)
-# Сохранение JSON в файл
-# with open("students.json", "w") as file:
-#     file.write(students_json)
-
-
 if __name__ == "__main__":
     # file = FileWorker(HeadHunterAPI.get_vacancies())
     # print(file)
@@ -151,9 +109,6 @@ if __name__ == "__main__":
     # students = [Student(name="Alice", age=20), Student(name="Bob", age=22), Student(name="Charlie", age=23)]
     # students_dict_list = [student.to_dict() for student in students]
 
-
-
-
     file_ex = FileWorker('vacancies.json')
 
     # Получение вакансий с hh.ru в формате JSON
@@ -168,4 +123,3 @@ if __name__ == "__main__":
     file_ex.save_to_file(vacancies_list)
     # vacancies_dict = [Vacancy.to_dict() for vacancy in vacancies_list]
     # print(vacancies_dict)
-
