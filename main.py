@@ -46,13 +46,13 @@ def user_interaction():
     Vacancy.delete_vacancy(vacancy)
     # print('vacancies_list.delete_vacancy(vacancy)',vacancies_list[-1].name)
 
-    filter_words = input("Введите ключевые слова для фильтрации вакансий: ") #.split()
+    filter_words = input("Введите ключевые слова для фильтрации вакансий: ").split()
     # filter_words = "Django"
     Vacancy.search_by_keywords(filter_words)
     Vacancy.sorted_desc_list()
 
-    # top_n = int(input("Введите количество вакансий для вывода в топ N: "))
-    top_n = 5
+    top_n = int(input("Введите количество вакансий для вывода в топ N: "))
+    # top_n = 5
     top_n_list = Vacancy.top_n_list(int(top_n))
     # print(*top_n_list, sep='\n')
     print(*Vacancy.vacancies, end='\n', sep='\n')

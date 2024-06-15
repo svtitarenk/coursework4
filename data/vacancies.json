@@ -1,18 +1,42 @@
 [
     {
-        "name": "Стажер-разработчик Python",
-        "alternate_url": "https://hh.ru/vacancy/94354526",
+        "name": "Разработчик Python / Django",
+        "alternate_url": "https://hh.ru/vacancy/101077785",
         "salary_from": 100000,
-        "salary_to": null,
-        "city": "Ростов-на-Дону",
-        "experience": "Нет опыта"
+        "salary_to": 150000,
+        "city": "Москва",
+        "experience": "От 1 года до 3 лет"
     },
     {
-        "name": "Младший аналитик-стажер / ВТБ РОСТ",
-        "alternate_url": "https://hh.ru/vacancy/100526269",
-        "salary_from": 100000,
-        "salary_to": 100000,
+        "name": "Django разработчик",
+        "alternate_url": "https://hh.ru/vacancy/101732827",
+        "salary_from": 60000,
+        "salary_to": 120000,
         "city": "Москва",
-        "experience": "Нет опыта"
+        "experience": "От 1 года до 3 лет"
+    },
+    {
+        "name": "Junior Django developer",
+        "alternate_url": "https://hh.ru/vacancy/101269067",
+        "salary_from": 60000,
+        "salary_to": 100000,
+        "city": "Санкт-Петербург",
+        "experience": "От 1 года до 3 лет"
+    },
+    {
+        "name": "Junior Python Django developer",
+        "alternate_url": "https://hh.ru/vacancy/101871676",
+        "salary_from": 0,
+        "salary_to": 120000,
+        "city": "Москва",
+        "experience": "От 1 года до 3 лет"
+    },
+    {
+        "name": "Python / Django Developer",
+        "alternate_url": "https://hh.ru/vacancy/101862444",
+        "salary_from": 0,
+        "salary_to": 150000,
+        "city": "Краснодар",
+        "experience": "От 1 года до 3 лет"
     }
 ]

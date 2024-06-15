@@ -89,10 +89,11 @@ class Vacancy:
         Vacancy.vacancies = Vacancy.vacancies[:top_n]
 
     @staticmethod
-    def search_by_keywords(searched_word):
+    def search_by_keywords(searched_words: list):
         new_list = []
+        searched_word_set = set([item.lower() for item in searched_words])
         for vacancy in Vacancy.vacancies:
-            if searched_word.lower() in vacancy.name.lower():
+            if searched_word_set.intersection(set(vacancy.name.lower().split())):
                 new_list.append(vacancy)
         Vacancy.vacancies = new_list
 
