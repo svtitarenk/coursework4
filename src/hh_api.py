@@ -42,10 +42,6 @@ class HeadHunterAPI(Parser):
 
         return self.vacancies
 
-    # def __repr__(self):
-    #     for vacancy in self.vacancies:
-    #         return f"{vacancy["alternate_url"]}"
-
 
 if __name__ == "__main__":
     # Создание экземпляра класса для работы с API сайтов с вакансиями
