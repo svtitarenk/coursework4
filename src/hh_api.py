@@ -35,6 +35,8 @@ class HeadHunterAPI(Parser):
         while self.params.get('page') != 20:
             response = requests.get(self.url, headers=self.headers, params=self.params)
             vacancies = response.json()['items']
+            if not vacancies:
+                break
             self.vacancies.extend(vacancies)
             self.params['page'] += 1
 
