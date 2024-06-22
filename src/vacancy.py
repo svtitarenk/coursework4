@@ -8,7 +8,6 @@ class Vacancy:
         self.salary_to = salary_to
         self.city = city
         self.experience = experience
-        # self.snippets = "" # нежелательно хранить None, потому что по этой строке может быть выборка в запросе
         self.validate()
 
     def validate(self):
@@ -36,30 +35,35 @@ class Vacancy:
                 f'Опыт: {self.experience}\n')
 
     @classmethod
-    def create_vacancies(cls, data: list):
-        """ Принимаем список словарей. С помощью цикла создаются сами вакансии"""
-        instances = []
-        for item in data:
-            url = item.get('alternate_url')
-            pass
-
-            # instance = cls(name, salary_from, salary_to, city, experience, url)
-
-    @staticmethod
-    def cast_to_object_list(vacancies: list):
+    def cast_to_object_list(cls, vacancies: list):
         list_vacancies = []
         for vacancy in vacancies:
-            vacancy_object = Vacancy(vacancy.get("name"),
-                                     vacancy.get("alternate_url"),
-                                     vacancy.get("salary").get("from"),
-                                     vacancy.get("salary").get("to"),
-                                     vacancy.get("area").get("name"),
-                                     vacancy.get("experience").get("name")
-                                     )
+            vacancy_object = cls(vacancy.get("name"),
+                                 vacancy.get("alternate_url"),
+                                 vacancy.get("salary").get("from"),
+                                 vacancy.get("salary").get("to"),
+                                 vacancy.get("area").get("name"),
+                                 vacancy.get("experience").get("name")
+                                 )
             list_vacancies.append(vacancy_object)
 
-        Vacancy.vacancies = list_vacancies
-        return Vacancy.vacancies
+        cls.vacancies = list_vacancies
+        return cls.vacancies
+
+    @classmethod
+    def cast_to_object_from_file_list(cls, vacancies: list):
+        list_vacancies = []
+        for vacancy in vacancies:
+            vacancy_object = cls(vacancy.get("name"),
+                                 vacancy.get("alternate_url"),
+                                 vacancy.get("salary_from"),
+                                 vacancy.get("salary_to"),
+                                 vacancy.get("city"),
+                                 vacancy.get("experience")
+                                 )
+            list_vacancies.append(vacancy_object)
+
+        cls.vacancies = list_vacancies
 
     def to_dict(self):
         return {"name": self.name,
@@ -70,30 +74,21 @@ class Vacancy:
                 "experience": self.experience
                 }
 
-    @staticmethod
-    def add_vacancy(new_vacancy):
-        return Vacancy.vacancies.append(new_vacancy)
+    @classmethod
+    def add_vacancy(cls, new_vacancy):
+        return cls.vacancies.append(new_vacancy)
 
-    @staticmethod
-    def delete_vacancy(del_vacancy):
-        return Vacancy.vacancies.remove(del_vacancy)
+    @classmethod
+    def delete_vacancy(cls, del_vacancy):
+        return cls.vacancies.remove(del_vacancy)
 
-    @staticmethod
-    def sorted_desc_list():
+    @classmethod
+    def sorted_desc_list(cls):
         """ сортируем список """
-        sort_key = lambda vac: vac
-        Vacancy.vacancies.sort(key=sort_key, reverse=True)
+        # sort_key = lambda vac: vac
+        cls.vacancies.sort(reverse=True)
 
-    @staticmethod
-    def top_n_list(top_n):
-        Vacancy.vacancies = Vacancy.vacancies[:top_n]
-
-    @staticmethod
-    def search_by_keywords(searched_words: list):
-        new_list = []
-        searched_word_set = set([item.lower() for item in searched_words])
-        for vacancy in Vacancy.vacancies:
-            if searched_word_set.intersection(set(vacancy.name.lower().split())):
-                new_list.append(vacancy)
-        Vacancy.vacancies = new_list
-
+    @classmethod
+    def top_n_list(cls, top_n):
+        """ выбираем топ вакансий из списка """
+        cls.vacancies = cls.vacancies[:top_n]

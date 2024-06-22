@@ -60,6 +60,18 @@ class FileWorker(FileManager):
             list_of_dict = file.read()
             return list_of_dict
 
+    def get_by_keyword(self, searched_words):
+        with open(self.file_path, 'r', encoding='utf-8') as file:
+            list_of_dict = json.load(file)
+            print(list_of_dict)
+            new_list = []
+            for vacancy in list_of_dict:
+                for word in searched_words:
+                    if word in vacancy["name"].lower():
+                        new_list.append(vacancy)
+            return new_list
+
+
     @staticmethod
     def check_directory_exist(directory):
         """
@@ -68,10 +80,9 @@ class FileWorker(FileManager):
         """
         directory_path = os.path.join(ROOT_DIR, directory)
         check_dir = Path(directory_path)
-        try:
-            check_dir.is_dir()  # проверяем есть ли папка
+        if check_dir.is_dir():  # проверяем есть ли папка
             return True
-        except FileNotFoundError:
+        else:
             return False
 
     @staticmethod
@@ -82,11 +93,6 @@ class FileWorker(FileManager):
         """
         file_path = os.path.join(ROOT_DIR, directory, file_name)
         check_file = Path(file_path)
-        # try:
-        #     check_file.exists()  # проверяем есть ли папка
-        #     return True
-        # except FileNotFoundError:
-        #     return False
         try:
             my_abs_path = check_file.resolve(strict=True)
         except FileNotFoundError:
@@ -96,18 +102,6 @@ class FileWorker(FileManager):
 if __name__ == "__main__":
     # file = FileWorker(HeadHunterAPI.get_vacancies())
     # print(file)
-
-    # class Student:
-    #     def __init__(self, name, age):
-    #         self.name = name
-    #         self.age = age
-    #
-    #     def to_dict(self):
-    #         return {"name": self.name, "age": self.age}
-    #
-    #
-    # students = [Student(name="Alice", age=20), Student(name="Bob", age=22), Student(name="Charlie", age=23)]
-    # students_dict_list = [student.to_dict() for student in students]
 
     file_ex = FileWorker('vacancies.json')
 
