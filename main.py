@@ -38,15 +38,20 @@ def user_interaction():
         "Test_Сербия",
         "От 3 до 6 лет"
     )
+    # list_from_file
 
     Vacancy.add_vacancy(vacancy)
     # print('vacancies_list.add_vacancy(vacancy)', vacancies_list[-1].name)
     Vacancy.delete_vacancy(vacancy)
     # print('vacancies_list.delete_vacancy(vacancy)',vacancies_list[-1].name)
 
-    filter_words = input("Введите ключевые слова для фильтрации вакансий: ").split()
-    # filter_words = "Django"
-    Vacancy.search_by_keywords(filter_words)
+    filter_words = input("Введите ключевые слова для фильтрации вакансий: ").lower().split()
+    # filter_words = "стажер backend"
+
+    filtered_vacancies_info = file_ex.get_by_keyword(filter_words)
+
+    Vacancy.cast_to_object_from_file_list(filtered_vacancies_info)
+
     Vacancy.sorted_desc_list()
 
     top_n = int(input("Введите количество вакансий для вывода в топ N: "))
@@ -56,7 +61,7 @@ def user_interaction():
     print(*Vacancy.vacancies, end='\n', sep='\n')
 
     # Сохранение информации о вакансиях в файл
-    file_ex.save_to_file(Vacancy.vacancies)
+    # file_ex.save_to_file(Vacancy.vacancies)
 
 
 if __name__ == "__main__":

@@ -60,6 +60,18 @@ class FileWorker(FileManager):
             list_of_dict = file.read()
             return list_of_dict
 
+    def get_by_keyword(self, searched_words):
+        with open(self.file_path, 'r', encoding='utf-8') as file:
+            list_of_dict = json.load(file)
+            print(list_of_dict)
+            new_list = []
+            for vacancy in list_of_dict:
+                for word in searched_words:
+                    if word in vacancy["name"].lower():
+                        new_list.append(vacancy)
+            return new_list
+
+
     @staticmethod
     def check_directory_exist(directory):
         """
